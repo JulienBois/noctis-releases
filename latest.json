@@ -1,0 +1,11 @@
+{
+    "version":  "0.1.0",
+    "notes":  "Premiere version de Noctis.",
+    "pub_date":  "2026-07-30T17:25:12Z",
+    "platforms":  {
+                      "windows-x86_64":  {
+                                             "signature":  "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSUEIyVWFvVTczM1crclVWV0M5YWRWVnBIL0o3dmdTeDdBUG1yd0MreFBGbldNRFZuc1F2SFVOZWdHWHIxbzJiZ0U5QzhUaWhvSkV0NDFWVlIxUHdGN2xvSWFreDZBeHdzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1NDMxMDg3CWZpbGU6Tm9jdGlzXzAuMS4wX3g2NC1zZXR1cC5leGUKdTA5TUlNd2JDaFJXdkNKZTF1TlgvWi85c0ZocnRaZXI2eGJESm1RVDFFQTk3MWlNRVdmZHZ3THk4K3JFZkFXTmo4eXhWc1AvakMyTGloU21QaGM2QUE9PQo=",
+                                             "url":  "https://github.com/JulienBois/noctis-releases/releases/download/v0.1.0/Noctis_0.1.0_x64-setup.exe"
+                                         }
+                  }
+}
