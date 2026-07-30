@@ -1,11 +1,11 @@
 {
-    "version":  "0.1.0",
-    "notes":  "Premiere version de Noctis.",
-    "pub_date":  "2026-07-30T17:25:12Z",
-    "platforms":  {
-                      "windows-x86_64":  {
-                                             "signature":  "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSUEIyVWFvVTczM1crclVWV0M5YWRWVnBIL0o3dmdTeDdBUG1yd0MreFBGbldNRFZuc1F2SFVOZWdHWHIxbzJiZ0U5QzhUaWhvSkV0NDFWVlIxUHdGN2xvSWFreDZBeHdzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1NDMxMDg3CWZpbGU6Tm9jdGlzXzAuMS4wX3g2NC1zZXR1cC5leGUKdTA5TUlNd2JDaFJXdkNKZTF1TlgvWi85c0ZocnRaZXI2eGJESm1RVDFFQTk3MWlNRVdmZHZ3THk4K3JFZkFXTmo4eXhWc1AvakMyTGloU21QaGM2QUE9PQo=",
-                                             "url":  "https://github.com/JulienBois/noctis-releases/releases/download/v0.1.0/Noctis_0.1.0_x64-setup.exe"
-                                         }
-                  }
+  "version": "0.1.0",
+  "notes": "CI : prouver l'écriture au lieu de la supposer\r\n\r\nLe contrôle interrogeait \repos/…/permissions.push. Ce champ décrit les\r\ndroits de l'UTILISATEUR sur le dépôt, pas ce que le jeton a le droit d'en\r\nfaire — et un dépôt public se lit avec n'importe quel jeton, même dépourvu\r\nde tout accès. Le contrôle passait donc systématiquement, et la publication\r\néchouait en 403 après vingt minutes de compilation.\r\n\r\nIl crée désormais un brouillon de publication et le retire aussitôt : aucune\r\nétiquette créée, invisible de tous, et c'est la seule preuve qui vaille.",
+  "pub_date": "2026-07-30T19:39:40Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSUEIyVWFvVTczM1VVeEVENzB4SDBKQTZTUjkwb2lDL0EraVE1UmEzejlUdG5yaWNMbWR5MHo5ckdFc0ZjQWhYUTI3aExiNTR6MlF3eWYxTk41Qk1OY2VMVHBTWmprN3dNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1NDQwMzY0CWZpbGU6Tm9jdGlzXzAuMS4wX3g2NC1zZXR1cC5leGUKSGhiaXdIYTdYRXB3WXR6NDI3SURZeldxY0xJKzBiUEFJYlhianhFZ2FsZ2pWd1lZcmp5YkQ3U01UTnhBSUZrdmRuYk9RN2hsM0l0YXJTWUR2N3JHQWc9PQo=",
+      "url": "https://github.com/JulienBois/noctis-releases/releases/download/v0.1.0/Noctis_0.1.0_x64-setup.exe"
+    }
+  }
 }
