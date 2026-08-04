@@ -1,11 +1,11 @@
 {
-  "version": "0.1.5",
-  "notes": "Une version d'affichage : ce que le service sait de vos films se voit enfin.\n\nfeature: **La fiche d'un titre a été refaite.** L'image panoramique ouvre\ndésormais la fenêtre en bandeau — elle n'était pas utilisée du tout — l'affiche\ny est nettement plus grande, et l'année, la note et les genres se rangent\nderrière le titre au lieu de se confondre avec lui.\nfeature: **Les vignettes disent l'année et le genre** au lieu du format du\nfichier. « MKV » indique comment un film est emballé, pas ce que c'est. Le\nformat reste affiché pour ce que le service n'a pas reconnu, et c'est là sa\nvraie place.\nfeature: Un titre long tient sur **deux lignes** au lieu d'être coupé net.\nfix: **Le tri par note, le tri par année, le filtre par genre et la liste des\ngenres ne trouvaient plus rien** depuis la version précédente. Le sélecteur de\ngenres restait vide, ce qui passe très bien pour une bibliothèque sans genres —\nrien ne le signalait. C'est réparé.\nfix: La version affichée en bas de la barre latérale annonçait toujours\n**« v0.1 »**, quelle que soit la version installée. Elle dit maintenant la\nvraie.\nfeature: La fenêtre de mise à jour annonce **ce que pèse le fichier** avant que\nvous acceptiez de l'installer.\n\n---",
-  "pub_date": "2026-08-03T19:32:36Z",
+  "version": "0.1.6",
+  "notes": "feature: **Un épisode affiche sa date de diffusion** à côté de son rang, et son\nrésumé se lit en passant la souris dessus. Le service les fournissait déjà :\nils n'allaient nulle part.\nfeature: Noctis regarde s'il existe une nouvelle version **à chaque ouverture**,\net non plus une fois par jour. Une vérification pèse deux kilo-octets et demi ;\nattendre le lendemain pour vous annoncer une version coûtait plus que ça ne\nrapportait.\nfeature: Rallumer « Chercher au démarrage » dans les préférences **relance la\nrecherche sur-le-champ**. L'interrupteur ne servait qu'à couper : on le\nrallumait, et il ne se passait rien avant le lendemain.\n\n---",
+  "pub_date": "2026-08-04T16:04:34Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSUEIyVWFvVTczM1RlcTNjdWxvSlJ3VzhjZDJ3NStOMFYxRGhFNjRZT2ViN2g4ekc3cU01Q3FSWFk4VmJQeENmSlZXekV1VzFBNjl0Z1dBQlNMZ21ieURQWmRWQ0RBcUF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1Nzg1NTU1CWZpbGU6Tm9jdGlzXzAuMS41X3g2NC1zZXR1cC5leGUKekRxTy9venl6RWs4M0xkMWJ0L1VnMTBxNHZnVStKWmxPRG9mQlRHUE1ibFliZXlnQm5qdnFWMk9PcXZlUmNjNkMyNnZHVmxRWjBqZ095bm5heS9YQVE9PQo=",
-      "url": "https://github.com/JulienBois/noctis-releases/releases/download/v0.1.5/Noctis_0.1.5_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSUEIyVWFvVTczM1pUQlNldGk0TFBzK0xRbnZGK1ZoaHFzczhxZGJUOE5pQnkyeE05WVorZE1EV09oVExkdkNzQ1lZa2k0aVlMeFRoT0ZFalpBOER3TVI5a2xuZXZCSkFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1ODU5NDY4CWZpbGU6Tm9jdGlzXzAuMS42X3g2NC1zZXR1cC5leGUKbmE1NEk2TkdiKzFmZ3ZCYzBIQk1WZlh3cENUOUZvOTk1dE00VFJjVWsrQ2lKNkpjQ2ltbXI5ang3alhoTmwxS1I5Zy9sQmRGRUVGT09JWHo3TktoQlE9PQo=",
+      "url": "https://github.com/JulienBois/noctis-releases/releases/download/v0.1.6/Noctis_0.1.6_x64-setup.exe"
     }
   }
 }
