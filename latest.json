@@ -1,11 +1,11 @@
 {
-  "version": "0.1.6",
-  "notes": "feature: **Un épisode affiche sa date de diffusion** à côté de son rang, et son\nrésumé se lit en passant la souris dessus. Le service les fournissait déjà :\nils n'allaient nulle part.\nfeature: Noctis regarde s'il existe une nouvelle version **à chaque ouverture**,\net non plus une fois par jour. Une vérification pèse deux kilo-octets et demi ;\nattendre le lendemain pour vous annoncer une version coûtait plus que ça ne\nrapportait.\nfeature: Rallumer « Chercher au démarrage » dans les préférences **relance la\nrecherche sur-le-champ**. L'interrupteur ne servait qu'à couper : on le\nrallumait, et il ne se passait rien avant le lendemain.\n\n---",
-  "pub_date": "2026-08-04T16:04:34Z",
+  "version": "0.1.7",
+  "notes": "feature: **Les génériques se voient sur la barre de progression.** Une bande\nmarque l'ouverture, une autre la fin, et le survol en donne les bornes. Vous\nsavez avant d'y arriver combien de temps dure ce que vous allez passer.\nfeature: **Un bouton de retour** quand une série ou une playlist est dépliée.\nIl n'y en avait pas : il fallait deviner qu'on ressortait par la barre\nlatérale. Échap fonctionne aussi.\nfix: **Un générique déjà repéré s'affiche immédiatement.** Noctis attendait\ncinq secondes avant de montrer une réponse qu'il connaissait déjà — le délai\nservait à ne pas lancer une recherche coûteuse sur un film qu'on referme\naussitôt, et il retardait aussi ce qui ne coûtait rien.\nfix: Après avoir déplié une série puis être revenu, sa vignette prenait **le\ntitre et l'image de son premier épisode**. Les playlists faisaient de même avec\nleur premier titre.\n\n---",
+  "pub_date": "2026-08-04T17:24:05Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSUEIyVWFvVTczM1pUQlNldGk0TFBzK0xRbnZGK1ZoaHFzczhxZGJUOE5pQnkyeE05WVorZE1EV09oVExkdkNzQ1lZa2k0aVlMeFRoT0ZFalpBOER3TVI5a2xuZXZCSkFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1ODU5NDY4CWZpbGU6Tm9jdGlzXzAuMS42X3g2NC1zZXR1cC5leGUKbmE1NEk2TkdiKzFmZ3ZCYzBIQk1WZlh3cENUOUZvOTk1dE00VFJjVWsrQ2lKNkpjQ2ltbXI5ang3alhoTmwxS1I5Zy9sQmRGRUVGT09JWHo3TktoQlE9PQo=",
-      "url": "https://github.com/JulienBois/noctis-releases/releases/download/v0.1.6/Noctis_0.1.6_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSUEIyVWFvVTczM1l6ajlaeHk5WVNSTmxMNDFuMnV1c1lnQXlwUWlyL3JMVVFDWGFVT1AydEJta0dvODRSQ1M4dDZpc3lDT3lINGJhcU0xUVdLZUpDclNaTjJPcjJ3VVFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1ODY0MjQxCWZpbGU6Tm9jdGlzXzAuMS43X3g2NC1zZXR1cC5leGUKRFVKcllnSCthWlFiaEJqbG5WZHowbm1UajZmZ1VnOGg3WEcyY0Q0bDlZN3kxeXVKbURITGYrL3dqQ1dEK2krZmFzbnR3TGFmcWJhZ2kvMEdxY3A3RHc9PQo=",
+      "url": "https://github.com/JulienBois/noctis-releases/releases/download/v0.1.7/Noctis_0.1.7_x64-setup.exe"
     }
   }
 }
