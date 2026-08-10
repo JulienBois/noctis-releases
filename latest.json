@@ -1,11 +1,11 @@
 {
-  "version": "0.1.8",
-  "notes": "feature: **Le premier lancement de la journée ne prend plus quinze secondes.**\nC'était le défaut le plus visible de Noctis et le plus difficile à croire : la\nfenêtre mettait parfois plus de quinze secondes à apparaître, sans rien\nafficher entre-temps. Le moteur vidéo inspectait ses trois cent soixante et un\ngreffons un par un à chaque démarrage, et un antivirus les examinait au passage.\nIl lit désormais un seul fichier. Mesuré sur une machine qui vient de démarrer :\n**15,6 secondes avant, 0,8 seconde après.**\nfeature: **L'écran de démarrage s'affiche immédiatement**, au lieu d'attendre\nque le moteur soit prêt. Vous pouvez parcourir votre bibliothèque pendant qu'il\nse prépare ; si vous lancez un film avant qu'il ait fini, Noctis vous le dit et\npart dès qu'il peut.\nfix: **Le grand vide sous les titres de la bibliothèque** est parti. Chaque\nvignette réservait la place de deux lignes de titre même quand une seule\nsuffisait — c'est-à-dire presque toujours.\nfix: **« Ouvrir une vidéo » ignorait les fichiers .vob et .mts.** Un rip de\nDVD ou une prise de caméscope apparaissait bien dans votre bibliothèque et\ns'ouvrait au double-clic, mais restait grisé dans le sélecteur de fichiers.\nNoctis prend en charge seize formats, et les seize s'y trouvent maintenant.\nfix: La section **« Et aussi » ne s'affiche plus quand elle est vide** dans les\nnotes de version.\nfix: La recherche de mise à jour **revient à une fois par heure**. La version\nprécédente la faisait à chaque ouverture, le temps de vérifier qu'elle\nfonctionnait.",
-  "pub_date": "2026-08-04T20:15:15Z",
+  "version": "0.1.9",
+  "notes": "feature: **Noctis parle désormais neuf langues** — français, anglais, espagnol,\nallemand, italien, portugais, japonais, chinois simplifié et coréen. La langue\nse choisit dès l'installation, et se change à tout moment dans\n**Préférences → Apparence**. Toute l'interface suit : menus, réglages, aide,\nmessages.\nfix: Les dates et les nombres s'affichent maintenant **au format de la langue\nchoisie**, au lieu de rester au format américain.",
+  "pub_date": "2026-08-10T12:18:03Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSUEIyVWFvVTczM2RYQ1ovTTc2dlNWOE9hZmFPWjZIOUNicGF0eVFLYWdnUUswVkppbmNaMEJiVDlhY1JObFhIdHFmUGFuZHhNN0pYM2Z2bFo4SjVLSStlS2cxUmZ5L2cwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1ODc0NTE0CWZpbGU6Tm9jdGlzXzAuMS44X3g2NC1zZXR1cC5leGUKZHcxQ1diRXlLM1pXTmdkakpGZWZHQkYwMEh1VjVoUDFVTms2NUw1RFNDNDh6TDlzbHljekhPWXdWZVU4SldISHg2emtYMWRxVTFENDNRU2JpZHhGQkE9PQo=",
-      "url": "https://github.com/JulienBois/noctis-releases/releases/download/v0.1.8/Noctis_0.1.8_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSUEIyVWFvVTczM2NOSXlkbkl2QnllazZIc1JOTlRBSVhTYjNFSTFCZHZuLy9ETTdiL2d3TnFOMklHNXpHU0JTblI2eDVnUGZnb2tmZE0yUjJLN3FHZ1I4N2UvKzUvakE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2MzY0MjgwCWZpbGU6Tm9jdGlzXzAuMS45X3g2NC1zZXR1cC5leGUKTGg3Zi9OeXNwQmt5VFNINU1URjYraVEwTnVtNGVER0RRZlNzUEI5L2wwMXM2L1FEZlo3bFJGRXFjOUFtNlN4cUo3aDdmaHAzY0g3NlRSOU1jRFhGQ1E9PQo=",
+      "url": "https://github.com/JulienBois/noctis-releases/releases/download/v0.1.9/Noctis_0.1.9_x64-setup.exe"
     }
   }
 }
