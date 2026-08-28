@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noctis — Politique de confidentialité</title>
+
+<!-- ============================================================
+     À PUBLIER À UNE ADRESSE PUBLIQUE ET STABLE avant toute soumission
+     au Microsoft Store. La politique 10.5.1 l'exige nommément pour les
+     produits Desktop Bridge et Win32, et son absence fait échouer la
+     certification.
+
+     AVANT DE PUBLIER, deux choses à vérifier :
+       - l'adresse de contact ci-dessous suppose que strake.eu est actif ;
+       - ce texte décrit la variante VENDUE (tauri.vente.conf.json), d'où
+         sont élagués les fiches TMDB, la mise à jour intégrée, la veille
+         de flux et le rapatriement. Il serait FAUX pour Noctis Atelier.
+
+     Écrit d'après le code, pas d'après un modèle. Les trois destinations
+     citées sont les seules du paquet vendu, relevées dans :
+       src-tauri/src/subs.rs:14      api.opensubtitles.com
+       src-tauri/src/dictee.rs:533   huggingface.co (modèles whisper)
+       src/transducteur-modeles.js   huggingface.co (modèles sherpa)
+       src/vendor/transformers.min.js  huggingface.co (modèles de traduction)
+     Toute fonction ajoutée qui parle au réseau doit apparaître ici.
+     ============================================================ -->
+
+<style>
+  /* ------------------------------------------------------------
+     La palette vient de l'application, pas d'un modèle : `--lune`,
+     #5B8DEF, est la couleur d'accent par défaut de Noctis, et le fond
+     sombre est celui de ses bancs d'essai. Les gris tirent légèrement
+     vers le bleu pour la même raison — un gris parfaitement neutre
+     jurerait à côté.
+
+     TROIS ÉTATS DE THÈME, pas deux. Le choix explicite du lecteur pose
+     `data-theme` sur la racine ; le réglage « système », qui est le
+     défaut, ne pose rien du tout et seul `prefers-color-scheme` le
+     départage. Une couleur définie UNIQUEMENT dans un bloc de thème ne
+     s'appliquerait donc jamais dans cet état-là.
+     ------------------------------------------------------------ */
+  :root {
+    --fond: #fafbfe;
+    --carte: #ffffff;
+    --texte: #161923;
+    --doux: #5d647a;
+    --trait: #e2e6f0;
+    --accent: #3d63c4;
+    --code: #eef1f8;
+    --mesure: 66ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fond: #0b0e16;
+      --carte: #11151f;
+      --texte: #e7ebf5;
+      --doux: #98a1bd;
+      --trait: #222838;
+      --accent: #8fb0ff;
+      --code: #151a26;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fond: #0b0e16;
+    --carte: #11151f;
+    --texte: #e7ebf5;
+    --doux: #98a1bd;
+    --trait: #222838;
+    --accent: #8fb0ff;
+    --code: #151a26;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    /* Explicite, et non hérité : sans cette ligne la page emprunte le fond
+       de son hôte et se retrouve avec le texte d'un thème sur le sol de
+       l'autre. */
+    background: var(--fond);
+    color: var(--texte);
+    font: 16.5px/1.7 "Segoe UI", -apple-system, system-ui, sans-serif;
+    padding: 56px 22px 104px;
+  }
+
+  main { max-width: var(--mesure); margin: 0 auto; }
+
+  /* Un empattement pour les titres : c'est un document qu'on lit, pas une
+     interface qu'on manœuvre, et la page doit le dire avant d'être lue. */
+  h1, h2, h3 {
+    font-family: "Iowan Old Style", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+  h1 { font-size: 30px; line-height: 1.25; margin: 0 0 6px; letter-spacing: -.012em; }
+  h2 {
+    font-size: 21px; line-height: 1.3; margin: 44px 0 12px;
+    padding-top: 20px; border-top: 1px solid var(--trait);
+  }
+  h3 { font-size: 17px; margin: 28px 0 6px; }
+
+  .date {
+    color: var(--doux); margin: 0 0 36px;
+    font-size: 12.5px; text-transform: uppercase; letter-spacing: .07em;
+  }
+
+  p { margin: 0 0 14px; }
+  ul { padding-left: 20px; margin: 0 0 14px; display: grid; gap: 6px; }
+
+  code {
+    background: var(--code); color: var(--texte);
+    padding: 1.5px 6px; border-radius: 5px;
+    font: 13.5px/1.5 ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+  .sommaire {
+    background: var(--carte); border: 1px solid var(--trait);
+    border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+    display: grid; gap: 10px;
+  }
+  .sommaire p {
+    margin: 0; font-size: 12.5px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .08em; color: var(--doux);
+  }
+  .sommaire ul { margin: 0; }
+
+  /* Le seul endroit où la couleur d'accent porte du texte : la phrase qui
+     engage le plus, celle qui dit que rien de votre film ne part. */
+  .fort {
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 18px; margin: 22px 0;
+  }
+  .fort p:last-child { margin-bottom: 0; }
+
+  hr { border: 0; border-top: 1px solid var(--trait); margin: 72px 0 48px; }
+
+  footer {
+    color: var(--doux); font-size: 13px; margin-top: 56px;
+    padding-top: 20px; border-top: 1px solid var(--trait);
+  }
+</style>
+
+<main>
+
+<h1>Politique de confidentialité de Noctis</h1>
+<p class="date">Dernière mise à jour : 17 août 2026 · Éditeur : Strake</p>
+
+<div class="sommaire">
+  <p>En résumé</p>
+  <ul>
+    <li>Noctis fonctionne <strong>sans compte</strong> et <strong>sans connexion</strong>.</li>
+    <li>Il ne contient <strong>aucune mesure d'audience, aucun traceur, aucune publicité</strong>.</li>
+    <li>Votre bibliothèque, vos transcriptions et vos réglages <strong>restent sur votre machine</strong>.</li>
+    <li>Trois fonctions, et trois seulement, se connectent — <strong>et uniquement quand vous les demandez</strong>.</li>
+  </ul>
+</div>
+
+<h2>1. Ce que Noctis ne fait pas</h2>
+<p>Noctis ne crée aucun compte, ne demande aucune identité, et n'envoie
+aucune donnée d'usage. Il n'y a ni mesure d'audience, ni rapport d'erreur
+automatique, ni identifiant publicitaire, ni traceur tiers. Aucun profil
+n'est constitué, aucune donnée n'est vendue ni partagée à des fins
+commerciales.</p>
+
+<p>Lancé et laissé à lui-même, Noctis n'ouvre <strong>aucune connexion
+réseau</strong>.</p>
+
+<h2>2. Ce qui reste sur votre machine, toujours</h2>
+<p>Tout ce qui suit est écrit sur votre disque et n'en sort jamais :</p>
+<ul>
+  <li>la liste de vos fichiers vidéo, leurs noms, leurs dossiers et leur durée ;</li>
+  <li>les vignettes et les affiches extraites de vos propres fichiers, ainsi que
+      la forme de leur bande son — des niveaux d'intensité, dont aucun son ne
+      peut être reconstitué ;</li>
+  <li>vos positions de lecture, vos listes de lecture, vos favoris et vos repères ;</li>
+  <li>les sous-titres que vous transcrivez ou traduisez, ainsi que leur texte ;</li>
+  <li>les extraits, GIF, captures et fichiers convertis que vous produisez ;</li>
+  <li>vos préférences.</li>
+</ul>
+
+<div class="fort">
+<p><strong>La transcription et la traduction s'exécutent entièrement sur votre
+ordinateur.</strong> Le son de vos films n'est envoyé nulle part, et le texte
+produit non plus. Seul le <em>modèle</em> — le fichier de calcul, identique pour
+tout le monde — est téléchargé une fois, comme on télécharge un dictionnaire.</p>
+</div>
+
+<h2>3. Les trois fonctions qui se connectent</h2>
+
+<h3>3.1 — La recherche de sous-titres en ligne</h3>
+<p>Elle ne s'exécute que si vous la déclenchez depuis le menu des sous-titres,
+et seulement si vous avez fourni votre propre clé d'API OpenSubtitles dans les
+préférences. Sans cette clé, la fonction est inactive.</p>
+
+<p>Quand vous l'utilisez, Noctis transmet à
+<a href="https://www.opensubtitles.com/">OpenSubtitles</a>
+(<code>api.opensubtitles.com</code>) :</p>
+<ul>
+  <li>une <strong>empreinte numérique du fichier vidéo</strong>, calculée à
+      partir de sa taille et de son contenu, qui permet au service de
+      reconnaître ce montage précis ;</li>
+  <li>le <strong>titre déduit du nom de votre fichier</strong> ;</li>
+  <li>les <strong>langues de sous-titres</strong> que vous avez choisies ;</li>
+  <li>votre <strong>clé d'API personnelle</strong> et le nom de l'application
+      (« Noctis » suivi de sa version).</li>
+</ul>
+<p>Le contenu de la vidéo n'est jamais transmis. Le traitement de ces données
+par OpenSubtitles relève de sa propre politique de confidentialité, que nous ne
+maîtrisons pas. Votre clé d'API reste stockée sur votre machine et n'est envoyée
+qu'à ce service.</p>
+
+<h3>3.2 — Le téléchargement des modèles de transcription</h3>
+<p>À votre première transcription, Noctis télécharge depuis
+<a href="https://huggingface.co/">Hugging Face</a> (<code>huggingface.co</code>)
+le modèle de reconnaissance vocale que vous avez choisi. C'est un téléchargement
+de fichier ordinaire, sans compte ni identifiant : aucune donnée vous concernant
+n'est transmise, hormis ce que tout téléchargement expose techniquement à son
+serveur — adresse IP, et nom du fichier demandé.</p>
+
+<h3>3.3 — Le téléchargement des modèles de traduction</h3>
+<p>Même mécanisme, même destination, lorsque vous demandez la traduction de
+sous-titres. Un modèle par couple de langues, téléchargé une seule fois.</p>
+
+<p>Les modèles téléchargés restent ensuite sur votre disque et sont réutilisés
+hors ligne.</p>
+
+<h2>4. Où vos données sont rangées</h2>
+<ul>
+  <li><code>%APPDATA%\Noctis\</code> — vos collections, préférences et
+      positions de lecture, ainsi que les modèles téléchargés ;</li>
+  <li><code>%LOCALAPPDATA%\Noctis\</code> — les vignettes, les affiches et les
+      ondes mises en cache, qui peuvent être effacées à tout moment depuis les
+      préférences ;</li>
+  <li><code>%APPDATA%\vlc\</code> — libVLC, le moteur de lecture, y garde les
+      pochettes qu'il extrait de vos fichiers audio. Ce dossier lui appartient :
+      Noctis y lit, n'y écrit rien, et ne l'efface pas.</li>
+</ul>
+<p>Rien n'est chiffré : ce sont des fichiers ordinaires sur votre machine,
+protégés par votre session Windows. Vous pouvez les exporter, les copier ou les
+supprimer vous-même à tout moment ; les préférences offrent d'ailleurs un
+export complet en un fichier.</p>
+
+<h2>5. Vos droits</h2>
+<p>Noctis ne détenant aucune donnée vous concernant sur un serveur, il n'y a
+rien à consulter, rectifier ni supprimer auprès de nous : tout est chez vous et
+sous votre contrôle direct. Pour les données transmises à OpenSubtitles à votre
+initiative, adressez-vous à ce service.</p>
+
+<h2>6. Achat et distribution</h2>
+<p>Noctis est distribué par le Microsoft Store. L'achat, le paiement et la
+gestion de votre licence sont assurés par Microsoft, selon sa propre politique
+de confidentialité. Nous ne recevons aucune donnée bancaire ni aucune
+information nominative sur les acheteurs.</p>
+
+<h2>7. Enfants</h2>
+<p>Noctis n'est pas destiné aux enfants et ne collecte sciemment aucune donnée
+les concernant — n'en collectant aucune, de personne.</p>
+
+<h2>8. Modifications</h2>
+<p>Toute fonction future qui communiquerait avec un service en ligne sera
+décrite ici avant sa mise à disposition, et la date de mise à jour ci-dessus
+sera modifiée en conséquence.</p>
+
+<h2>9. Contact</h2>
+<p><a href="mailto:noctis@strake.eu">noctis@strake.eu</a></p>
+
+<hr>
+
+<h1 id="en">Noctis — Privacy Policy</h1>
+<p class="date">Last updated: 17 August 2026 · Publisher: Strake</p>
+
+<div class="sommaire">
+  <p>In short</p>
+  <ul>
+    <li>Noctis works <strong>without an account</strong> and <strong>without a connection</strong>.</li>
+    <li>It contains <strong>no analytics, no trackers, no advertising</strong>.</li>
+    <li>Your library, transcripts and settings <strong>stay on your machine</strong>.</li>
+    <li>Three features, and only three, connect to the internet — <strong>and only when you ask them to</strong>.</li>
+  </ul>
+</div>
+
+<h2>1. What Noctis does not do</h2>
+<p>Noctis creates no account, asks for no identity, and sends no usage data.
+There is no analytics, no automatic crash reporting, no advertising identifier
+and no third-party tracker. No profile is built, and no data is sold or shared
+for commercial purposes. Left alone, Noctis opens <strong>no network
+connection</strong>.</p>
+
+<h2>2. What always stays on your machine</h2>
+<ul>
+  <li>your video files, their names, folders and durations;</li>
+  <li>thumbnails and posters extracted from your own files;</li>
+  <li>playback positions, playlists, favourites and markers;</li>
+  <li>subtitles you transcribe or translate, and their text;</li>
+  <li>clips, GIFs, screenshots and converted files you produce;</li>
+  <li>your preferences.</li>
+</ul>
+<p><strong>Transcription and translation run entirely on your computer.</strong>
+Your films' audio is never uploaded, and neither is the resulting text. Only the
+<em>model</em> — the same computation file for everyone — is downloaded once.</p>
+
+<h2>3. The three features that connect</h2>
+
+<h3>3.1 — Online subtitle search</h3>
+<p>It runs only when you trigger it, and only if you supplied your own
+OpenSubtitles API key in the preferences. Noctis then sends to
+<code>api.opensubtitles.com</code>: a <strong>digital fingerprint of the video
+file</strong> (computed from its size and content), the <strong>title derived
+from your file name</strong>, your chosen <strong>subtitle languages</strong>,
+and your <strong>personal API key</strong> along with the application name and
+version. The video content itself is never transmitted. OpenSubtitles' handling
+of this data is governed by its own privacy policy.</p>
+
+<h3>3.2 and 3.3 — Downloading transcription and translation models</h3>
+<p>On first use, Noctis downloads the selected model from
+<code>huggingface.co</code>. This is an ordinary file download with no account
+and no identifier: nothing about you is transmitted beyond what any download
+technically exposes to its server — your IP address and the requested file name.
+Downloaded models then stay on your disk and are reused offline.</p>
+
+<h2>4. Where your data is stored</h2>
+<p><code>%APPDATA%\Noctis\</code> holds your collections, preferences, playback
+positions and downloaded models. <code>%LOCALAPPDATA%\Noctis\</code> holds
+cached thumbnails and posters, which you can clear at any time from the
+preferences. Nothing is encrypted: these are ordinary files on your machine,
+protected by your Windows session. You can export, copy or delete them yourself
+at any time.</p>
+
+<h2>5. Your rights</h2>
+<p>Since Noctis holds no data about you on any server, there is nothing to
+access, correct or delete on our side — everything is on your machine and under
+your direct control. For data you send to OpenSubtitles, please contact that
+service.</p>
+
+<h2>6. Purchase and distribution</h2>
+<p>Noctis is distributed through the Microsoft Store. Purchase, payment and
+licence management are handled by Microsoft under its own privacy policy. We
+receive no payment details and no personally identifying information about
+purchasers.</p>
+
+<h2>7. Children</h2>
+<p>Noctis is not intended for children and knowingly collects no data about
+them — collecting none from anyone.</p>
+
+<h2>8. Changes</h2>
+<p>Any future feature that communicates with an online service will be described
+here before it ships, and the date above updated accordingly.</p>
+
+<h2>9. Contact</h2>
+<p><a href="mailto:noctis@strake.eu">noctis@strake.eu</a></p>
+
+<footer>Noctis — Strake</footer>
+
+</main>
